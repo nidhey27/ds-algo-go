@@ -7,16 +7,45 @@ import (
 )
 
 func main() {
-	a := array.Array{}
-	a.Init(10)
+	var input int
+	fmt.Println("-------- Choose DS --------")
+	fmt.Println("1. Array")
+	_, err := fmt.Scanln(&input)
+	if err != nil {
+		// Handle the error
+		fmt.Println(err)
+		return
+	}
 
-	fmt.Println(a.Length())
-	a.ModifyElement(0, 10)
-	a.ModifyElement(1, 20)
-	a.ModifyElement(11, 30)
+	switch input {
+	case 1:
+		// Array
+		a := array.Array{}
+		a.Init(10)
 
-	a.ModifyElement(1, 40)
-	a.ModifyElement(0, 0)
-	a.Print()
-	fmt.Println(a.Length())
+		fmt.Println("Array Length:", a.Length())
+		// Add
+		a.ModifyElement(0, 10)
+		a.ModifyElement(1, 20)
+		a.ModifyElement(11, 30)
+
+		// Update
+		a.ModifyElement(1, 40)
+		
+		// Delete
+		a.ModifyElement(0, 0)
+
+		// Print
+		a.Print()
+
+	case 2:
+		// code block 2
+
+	case 3:
+		// code block 3
+
+	default:
+		fmt.Println("Invalid option")
+	}
+
 }
