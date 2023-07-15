@@ -5,7 +5,7 @@ import "fmt"
 type Queue struct {
 	queue []int
 	size  int
-	font  int
+	front int
 	rear  int
 }
 
@@ -13,7 +13,7 @@ func (q *Queue) NewQueue(size int) *Queue {
 
 	q.queue = make([]int, size)
 	q.size = size
-	q.font = -1
+	q.front = -1
 	q.rear = -1
 
 	return q
@@ -29,8 +29,8 @@ func (q *Queue) IsEmpty() bool {
 
 func (q *Queue) Enqueue(elemet int) {
 	// First insertion
-	if q.font == -1 {
-		q.font = 0
+	if q.front == -1 {
+		q.front = 0
 	}
 	if q.IsFull() {
 		fmt.Println("Queue is full...!")
@@ -45,7 +45,7 @@ func (q *Queue) Dequeue() int {
 		fmt.Println("Queue is empty...!")
 		return -1
 	}
-	removedElemet := q.queue[q.font]
+	removedElemet := q.queue[q.front]
 
 	for i := 0; i < q.rear; i++ {
 		q.queue[i] = q.queue[i+1]
@@ -59,5 +59,5 @@ func (q *Queue) Peek() int {
 		fmt.Println("Queue is empty...!")
 		return -1
 	}
-	return q.queue[q.font]
+	return q.queue[q.front]
 }
