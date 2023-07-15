@@ -5,6 +5,7 @@ import (
 
 	"github.com/nidhey27/ds-algo-go/array"
 	dynamicarray "github.com/nidhey27/ds-algo-go/dynamic-array"
+	"github.com/nidhey27/ds-algo-go/stack"
 )
 
 func main() {
@@ -12,6 +13,7 @@ func main() {
 	fmt.Println("-------- Choose DS --------")
 	fmt.Println("1. Array")
 	fmt.Println("2. Dynamic Array")
+	fmt.Println("3. Stack")
 	_, err := fmt.Scanln(&input)
 	if err != nil {
 		// Handle the error
@@ -70,7 +72,29 @@ func main() {
 
 	case 3:
 		// code block 3
+		s := stack.Stack{}
+		s.NewStack(5)
 
+		s.Push(1)
+		s.Push(2)
+		s.Push(3)
+		s.Push(4)
+		s.Push(5)
+		s.Push(6)
+		// 
+		fmt.Println("Stack Top: ", s.Peek())
+		s.Pop()
+		fmt.Println("Stack Top: ", s.Peek())
+		s.Pop()
+		fmt.Println("Stack Top: ", s.Peek())
+		s.Pop()
+		fmt.Println("Stack Top: ", s.Peek())
+		s.Pop()
+		fmt.Println("Stack Top: ", s.Peek())
+		s.Pop()
+		fmt.Println("Stack Top: ", s.Peek())
+		s.Pop()
+		
 	default:
 		fmt.Println("Invalid option")
 	}
