@@ -18,13 +18,13 @@ func main() {
 	fmt.Println("3. Stack")
 	fmt.Println("4. Queue")
 	fmt.Println("5. Circular Queue")
-	// _, err := fmt.Scanln(&input)
-	// if err != nil {
-	// 	// Handle the error
-	// 	fmt.Println(err)
-	// 	return
-	// }
-	input = 5
+	_, err := fmt.Scanln(&input)
+	if err != nil {
+		// Handle the error
+		fmt.Println(err)
+		return
+	}
+
 	switch input {
 	case 1:
 		// Array
