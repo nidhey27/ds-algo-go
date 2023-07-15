@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/nidhey27/ds-algo-go/array"
+	circularqueue "github.com/nidhey27/ds-algo-go/circular-queue"
 	dynamicarray "github.com/nidhey27/ds-algo-go/dynamic-array"
 	"github.com/nidhey27/ds-algo-go/queue"
 	"github.com/nidhey27/ds-algo-go/stack"
@@ -16,13 +17,14 @@ func main() {
 	fmt.Println("2. Dynamic Array")
 	fmt.Println("3. Stack")
 	fmt.Println("4. Queue")
-	_, err := fmt.Scanln(&input)
-	if err != nil {
-		// Handle the error
-		fmt.Println(err)
-		return
-	}
-
+	fmt.Println("5. Circular Queue")
+	// _, err := fmt.Scanln(&input)
+	// if err != nil {
+	// 	// Handle the error
+	// 	fmt.Println(err)
+	// 	return
+	// }
+	input = 5
 	switch input {
 	case 1:
 		// Array
@@ -121,6 +123,25 @@ func main() {
 		q.Dequeue()
 
 		fmt.Println("Element: ", q.Peek())
+	case 5:
+		q := circularqueue.CircularQueue{}
+		q.NewCircularQueue(5)
+
+		fmt.Println("Element: ", q.Peek())
+		q.Enqueue(1)
+		q.Enqueue(2)
+		q.Enqueue(3)
+		q.Enqueue(4)
+		q.Enqueue(5)
+		fmt.Println("Element: ", q.Dequeue())
+		q.Enqueue(6)
+		fmt.Println("Element: ", q.Dequeue())
+
+		q.Enqueue(7)
+
+		for !q.IsEmpty() {
+			fmt.Println("Element: ", q.Dequeue())
+		}
 
 	default:
 		fmt.Println("Invalid option")
