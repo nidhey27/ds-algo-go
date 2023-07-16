@@ -7,6 +7,7 @@ import (
 	circularqueue "github.com/nidhey27/ds-algo-go/circular-queue"
 	dynamicarray "github.com/nidhey27/ds-algo-go/dynamic-array"
 	"github.com/nidhey27/ds-algo-go/queue"
+	singlylinkedlist "github.com/nidhey27/ds-algo-go/singly-linked-list"
 	"github.com/nidhey27/ds-algo-go/stack"
 )
 
@@ -18,6 +19,7 @@ func main() {
 	fmt.Println("3. Stack")
 	fmt.Println("4. Queue")
 	fmt.Println("5. Circular Queue")
+	fmt.Println("6. Singly Linked List")
 	_, err := fmt.Scanln(&input)
 	if err != nil {
 		// Handle the error
@@ -142,6 +144,45 @@ func main() {
 		for !q.IsEmpty() {
 			fmt.Println("Element: ", q.Dequeue())
 		}
+
+	case 6:
+		ll := singlylinkedlist.LinkedList{}
+
+		ll.InsertAtEnd("Jorgensen")
+		ll.InsertAtEnd("Preston")
+
+		ll.InsertAtStart("Nidhey")
+		ll.InsertAtStart("Nitin")
+		ll.InsertAtStart("Indurkar")
+
+		ll.InsertAtEnd("Jeffrey")
+
+		ll.InsertAt(1, "XXXXXX")
+
+		ll.InsertAt(4, "YYYYYY")
+
+		ll.InsertAt(3, "ZZZZZZ")
+
+		ll.InsertAt(8, "AAAAAA")
+
+		fmt.Println("Length of Linked List: ", ll.Length())
+		ll.TraverseList()
+
+		ll.DeleteAt(1)
+		ll.DeleteAt(2)
+		ll.DeleteAt(3)
+		ll.DeleteAt(5)
+
+		fmt.Println("Length of Linked List: ", ll.Length())
+		ll.TraverseList()
+
+		ll.DeleteAt(0)
+		ll.DeleteAt(4)
+
+		fmt.Println("Length of Linked List: ", ll.Length())
+		ll.TraverseList()
+
+		ll.DeleteAt(6)
 
 	default:
 		fmt.Println("Invalid option")
