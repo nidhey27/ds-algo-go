@@ -69,6 +69,10 @@ func (l *LinkedList) InsertAt(index int, element string) {
 }
 
 func (l *LinkedList) DeleteAt(index int) {
+	if l.IsEmpty() {
+		fmt.Println("List is empty")
+		return
+	}
 	if index < 0 || index >= l.Length() {
 		fmt.Println("Invalid index: ", index)
 		return
@@ -83,7 +87,7 @@ func (l *LinkedList) DeleteAt(index int) {
 	fmt.Println("Deleting Node...", index)
 	// Delete node at given index
 	itr := l.head
-	for i := 0; i < index - 1; i++{
+	for i := 0; i < index-1; i++ {
 		itr = itr.next
 	}
 	itr.next = itr.next.next
@@ -103,6 +107,10 @@ func (l *LinkedList) Length() int {
 }
 
 func (l *LinkedList) TraverseList() {
+	if l.IsEmpty() {
+		fmt.Println("List is empty")
+		return
+	}
 	fmt.Println("Traversing...")
 	itr := l.head
 	idx := 0
